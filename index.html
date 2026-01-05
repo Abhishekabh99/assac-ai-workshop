@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission Readiness Checklist & Risk Register (Demo)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero" role="banner">
+    <div class="hero__content">
+      <p class="eyebrow">Demo / Awareness Only</p>
+      <h1>Mission Readiness Checklist &amp; Risk Register (Demo)</h1>
+      <p class="subtitle">AI-assisted drafting | Human-validated</p>
+      <p class="disclaimer">Illustrative demo only. No operational or mission data. All outputs require formal human review and approval.</p>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="readiness-title" class="panel">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Section A</p>
+          <h2 id="readiness-title">Mission Readiness Checklist</h2>
+          <p class="helper">Track preparation areas and capture notes for human-led review.</p>
+        </div>
+        <div class="overall-readiness" aria-live="polite">
+          <p class="label">Overall readiness</p>
+          <div class="progress">
+            <div class="progress__bar" id="overall-progress-bar" style="width: 0%"></div>
+          </div>
+          <p class="value"><span id="overall-readiness">0</span>% complete</p>
+        </div>
+      </div>
+      <div id="checklist-container" class="grid"></div>
+    </section>
+
+    <section aria-labelledby="risk-title" class="panel">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Section B</p>
+          <h2 id="risk-title">Risk Register</h2>
+          <p class="helper">Auto-sorted by highest risk score. Draft entries; ensure human validation.</p>
+        </div>
+        <div class="actions">
+          <button id="clear-risks" class="ghost">Clear Demo Data</button>
+        </div>
+      </div>
+
+      <form id="risk-form" class="risk-form" aria-label="Add risk">
+        <div class="field">
+          <label for="risk-description">Risk description</label>
+          <textarea id="risk-description" name="description" rows="2" required></textarea>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label for="likelihood">Likelihood (1-5)</label>
+            <select id="likelihood" name="likelihood" required>
+              <option value="" disabled selected>Select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="impact">Impact (1-5)</label>
+            <select id="impact" name="impact" required>
+              <option value="" disabled selected>Select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="responsible">Responsible role</label>
+            <select id="responsible" name="responsible" required>
+              <option value="" disabled selected>Select</option>
+              <option value="Engineer">Engineer</option>
+              <option value="QA">QA</option>
+              <option value="Security">Security</option>
+              <option value="PM">PM</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="status">Status</label>
+            <select id="status" name="status" required>
+              <option value="" disabled selected>Select</option>
+              <option value="Open">Open</option>
+              <option value="Mitigated">Mitigated</option>
+              <option value="Closed">Closed</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="mitigation">Mitigation strategy</label>
+          <textarea id="mitigation" name="mitigation" rows="2" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="primary">Add Risk</button>
+          <p class="helper">Drafting aid only. Confirm accuracy through human review.</p>
+        </div>
+      </form>
+
+      <div class="table-wrapper" role="region" aria-label="Risk register table">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Risk ID</th>
+              <th scope="col">Risk Description</th>
+              <th scope="col">Likelihood</th>
+              <th scope="col">Impact</th>
+              <th scope="col">Risk Score</th>
+              <th scope="col">Mitigation Strategy</th>
+              <th scope="col">Responsible Role</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody id="risk-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="summary-title" class="panel">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Section C</p>
+          <h2 id="summary-title">Summary Export</h2>
+          <p class="helper">Generate a plain-text review summary for human approval.</p>
+        </div>
+      </div>
+      <div class="summary">
+        <button id="generate-summary" class="primary">Generate Review Summary</button>
+        <p class="helper">Outputs are for awareness only and must be validated by mission leadership.</p>
+        <textarea id="summary-output" rows="8" readonly aria-label="Summary preview"></textarea>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Demo / Awareness Only — No operational use. All actions require human review and approval.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
